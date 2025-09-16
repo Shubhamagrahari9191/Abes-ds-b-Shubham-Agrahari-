@@ -1,33 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <style>
+        #adi{
+            border: 5px solid black;
+            width: 400px;   
+            height: 400px;
+            background-color: lightblue;
+        }
+    </style>
 </head>
 <body>
+    <div id="adi">
+        <button onclick="abes()"> click</button>
+        <p id="demo"></p>
+    </div>
     <script>
-        function abes() {
-            document.write("Hello World!");
-            
+        function abes(){
+              document.getElementById("demo").innerHTML = "<h1>Hello World!</h1>";
         }
-        abes();
-        function add(){
-            var a=5;
-            var b=10;
-            var c=a+b;
-            document.write("<br>");
-            document.write(c);
-        }
-        add();
-        function sub(){
-            var a=5;
-            var b=10;
-            var c=b-a;
-            document.write("<br>");
-            document.write(c);
-        }
-        sub();
+
     </script>
 </body>
 </html>
