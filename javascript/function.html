@@ -1,23 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <style>
+    <!-- <style>
         #adi{
             border: 5px solid black;
             width: 400px;   
             height: 400px;
             background-color: lightblue;
         }
-    </style>
+    </style> -->
 </head>
-<body>
-    <div id="adi">
+<body id="adi">
+    <button onclick="red()">Red</button>
+     <button onclick="green()">green</button>
+      <button onclick="blue()">Blue</button>
+    <!-- <div id="adi">
         <button onclick="abes()"> click</button>
         <p id="demo"></p>
     </div>
     <script>
         function abes(){
               document.getElementById("demo").innerHTML = "<h1>Hello World!</h1>";
+        } -->
+    <script>
+        function red(){
+            document.getElementById("adi").style.backgroundColor="red";
+        }
+        function green(){
+            document.getElementById("adi").style.backgroundColor="green";
+        }
+        function blue(){
+            document.getElementById("adi").style.backgroundColor="blue";
         }
 
     </script>

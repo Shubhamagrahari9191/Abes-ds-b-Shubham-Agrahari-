@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Counter App</title>
+    <style>
+        body {
+              height: 100vh;
+              background: #f0f0f0;
+        }
+        .container {
+              width: 400px;
+              height: 400px;
+              background: #e3f2fd;
+              border: 2px solid #333;
+              border-radius: 20px;
+              box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: space-around;
+        }
+        .logo {
+              width: 60px;
+              height: 60px;
+              background: #fff;
+              border-radius: 50%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-weight: bold;
+              font-size: 1.2em;
+              border: 2px solid #333;
+              position: absolute;
+              top: 20px;
+              left: 20px;
+        }
+        .title {
+            font-size: 2em;
+            font-weight: bold;
+            color: #333;
+        }
+        .row {
+            display: flex;
+            justify-content: space-between;
+            width: 80%;
+        }
+        .label {
+            background: #bbdefb;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: 500;
+            color: #333;
+            margin: 0 10px;
+        }
+        .counter {
+            font-size: 2em;
+            font-weight: bold;
+            color: #1976d2;
+            margin: 20px 0;
+        }
+        .btn-row {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+        .btn {
+            width: 60px;
+            height: 40px;
+            font-size: 1.5em;
+            border: none;
+            border-radius: 8px;
+            background: #1976d2;
+            color: #fff;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .btn:hover {
+            background: #1565c0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="css/logo.png" alt="Logo" style="width:40px;height:40px;border-radius:50%;object-fit:cover;" />
+        </div>
+        <div class="title" style="margin-top: 40px;">Counter App</div>
+        <div class="counter" id="counter">0</div>
+        <div class="btn-row" style="position: relative; width: 100%; justify-content: space-around;">
+            <div style="display: flex; flex-direction: column; align-items: center;">
+                <div class="label" style="margin-bottom: 16px;">Maximum</div>
+                <button class="btn" style="margin-top: 8px;" onclick="increment()">+</button>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: center;">
+                <div class="label" style="margin-bottom: 16px;">Minimum</div>
+                <button class="btn" style="margin-top: 8px;" onclick="decrement()">-</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        let count = 0;
+        function increment() {
+            count++;
+            document.getElementById('counter').textContent = count;
+            if (count > 10) {
+                alert('Value cannot be greater than 10!');
+                count = 10;
+                document.getElementById('counter').textContent = count;
+            }
+        }
+        function decrement() {
+            count--;
+            document.getElementById('counter').textContent = count;
+            if (count < 0) {
+                alert('Value cannot be less than 0!');
+                count = 0;
+                document.getElementById('counter').textContent = count;
+            }
+        }
+    </script>
+</body>
+</html>
