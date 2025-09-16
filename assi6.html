@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Counter App</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg,blue, #66a6ff);
+    }
+    .counter-app {
+      text-align: center;
+      background: white;
+      padding: 30px 40px;
+      border-radius: 20px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+      margin-bottom: 30px;
+    }
+    .logo {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      margin-bottom: 15px;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #333;
+    }
+    .value {
+      font-size: 3rem;
+      margin: 20px 0;
+      font-weight: bold;
+      color: #444;
+    }
+    button {
+      font-size: 1.2rem;
+      padding: 8px 18px;
+      margin: 10px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    button:hover {
+      transform: scale(1.05);
+    }
+    .plus {
+      background: #4caf50;
+      color: white;
+    }
+    .minus {
+      background: #f44336;
+      color: white;
+    }
+    .card-container {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+    }
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      width: 200px;
+      text-align: center;
+    }
+    .card img {
+      width: 100%;
+      height: 120px;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+    .hide-btn {
+      background: #ff9800;
+      color: white;
+    }
+    .change-btn {
+      background: #2196f3;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="counter-app">
+    <img src="https://cdn-icons-png.flaticon.com/512/992/992651.png" alt="App Logo" class="logo">
+    <h1>😊 Counter-App</h1>
+    <div class="value" id="counter">0</div>
+    <button class="minus" onclick="decrease()">−</button>
+    <button class="plus" onclick="increase()">+</button>
+  </div>
+
+  <div class="card-container">
+    <!-- First Card (Hide Image) -->
+    <div class="card">
+      <img src="https://picsum.photos/200/120?random=1" id="hideImage" alt="Random Image">
+      <button class="hide-btn" onclick="hideImage()">Hide</button>
+    </div>
+
+    <!-- Second Card (Change Image) -->
+    <div class="card">
+      <img src="https://picsum.photos/200/120?random=2" id="changeImage" alt="Random Image">
+      <button class="change-btn" onclick="changeImage()">Change</button>
+    </div>
+  </div>
+
+  <script>
+    let counter = 0;
+    function increase() {
+      if (counter < 10) {
+        counter++;
+        document.getElementById("counter").innerText = counter;
+      } else {
+        alert("🚫 Oops! You've already reached the maximum limit (10).");
+      }
+    }
+    function decrease() {
+      if (counter > 0) {
+        counter--;
+        document.getElementById("counter").innerText = counter;
+      } else {
+        alert("🚫 Oops! The counter cannot go below zero.");
+      }
+    }
+
+    // Hide image function
+    function hideImage() {
+      let img = document.getElementById("hideImage");
+      if (img.style.display === "none") {
+        img.style.display = "block";
+      } else {
+        img.style.display = "none";
+      }
+    }
+
+    // Change image function
+    function changeImage() {
+      document.getElementById("changeImage").src = "https://picsum.photos/200/120?random=" + Math.floor(Math.random() * 1000);
+    }
+  </script>
+</body>
+</html>
