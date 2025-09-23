@@ -60,7 +60,8 @@
     </style>
 </head>
 <body>
-    <div class="container">
+    <button id="showBtn" style="position: absolute; top: 30px; left: 50%; transform: translateX(-50%); padding: 10px 24px; font-size: 1.1em; background: #2563eb; color: #fff; border: none; border-radius: 8px; cursor: pointer;">Show Students</button>
+    <div class="container" style="visibility: hidden;" id="container">
         <div class="card" id="itCard">
             <div class="card-title">IT Branch Students</div>
         </div>
@@ -79,21 +80,27 @@
 
         const itCard = document.getElementById('itCard');
         const otherCard = document.getElementById('otherCard');
+        const showBtn = document.getElementById('showBtn');
+        const container = document.getElementById('container');
 
-        students.forEach(student => {
-            const div = document.createElement('div');
-            div.className = 'student ' + (student.branch === 'it' ? 'branch-it' : 'branch-other');
-            div.innerHTML = `
-                <span><strong>Name:</strong> ${student.name}</span>
-                <span><strong>Class:</strong> ${student.class}</span>
-                <span><strong>Branch:</strong> ${student.branch.toUpperCase()}</span>
-                <span><strong>Roll No:</strong> ${student.rollno}</span>
-            `;
-            if (student.branch === 'it') {
-                itCard.appendChild(div);
-            } else {
-                otherCard.appendChild(div);
-            }
+        showBtn.addEventListener('click', function() {
+            container.style.visibility = 'visible';
+            showBtn.style.display = 'none';
+            students.forEach(student => {
+                const div = document.createElement('div');
+                div.className = 'student ' + (student.branch === 'it' ? 'branch-it' : 'branch-other');
+                div.innerHTML = `
+                    <span><strong>Name:</strong> ${student.name}</span>
+                    <span><strong>Class:</strong> ${student.class}</span>
+                    <span><strong>Branch:</strong> ${student.branch.toUpperCase()}</span>
+                    <span><strong>Roll No:</strong> ${student.rollno}</span>
+                `;
+                if (student.branch === 'it') {
+                    itCard.appendChild(div);
+                } else {
+                    otherCard.appendChild(div);
+                }
+            });
         });
     </script>
 </body>
