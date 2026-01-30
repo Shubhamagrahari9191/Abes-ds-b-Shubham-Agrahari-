@@ -6,4 +6,6 @@ const li1=React.createElement("li",{},"java programming");
 const li2=React.createElement("li",{},"python programming");
 const ul=React.createElement("ul",{},[li1,li2]);
 const div=React.createElement('div',{},[h2,ul]);
-root.render(div);
+setTimeout(() => {
+root.render(div) ;
+}, 2000); 
